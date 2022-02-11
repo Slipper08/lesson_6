@@ -1,0 +1,204 @@
+<!--&display=swap  нужен для оптимизированной загрузки шрифтов. Вставляется в конце ссылки загрузки шрифта-->
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css"> -->
+	<link rel="stylesheet" href="css/style.css">
+	<title>Lesson 5. Часть 1 - Курс Зима 2022</title>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="first-part">
+			<header>Как просил @ShocKKKKKKK (Сергей) вторая часть домашки <a class="homework-link" href="#2part" target="_self">тут</a></header>
+			<main>
+				<div class="main-block">
+					<h1>Блочная модель. "Всё - прямоугольник"</h1>
+					<img class="main-img" src="img/box-model-725w.webp" alt="box-model">
+					<p>Каждый элемент на странице - это прямоугольник. Во время отрисовки браузеры применяют к ним CSS-свойства.</p>
+					<p>Что же такой <span>блочная модель</span>? По сути это то, как браузер считает размеры элемента. За метод расчета отвечает параметр "box-sizing". Возможные значения следующие:</p>
+					<ul>
+						<li><span class="property">content-box</span> - значение по умолчанию. Размеры объекта вычисляются следующим образом:
+							<ul>
+								<li>ширина: значение width контентной части + padding*2 + border*2</li>
+								<li>высота: значение height контентной части + padding*2 + border*2</li>
+							</ul>
+						</li>
+						<li><span class="property">border-box</span> - можно назначить принудительно. В этом случае значения width и height будут включать в себя <span class="property">padding</span> и <span class="property">border</span>.</li>
+					</ul>
+				</div>
+				<h2>Демонстрация работы <span class="property">box-model</span></h2>
+				<div class="element-example demonstration">
+					<div class="element first-example"></div>
+					<div class="element second-example"></div>
+				</div>
+				<h3>Что получается:</h3>
+				<p>В случае значения <span class="property-full">box-sizing: content-box</span> ширина блока считается как ширина контентной части (100) + оступы слева и справа (10+10) и граница слева и справа (5 и 5) = 130 px. Для высоты тоже самое.</p>
+				<p>Размер первого элемента равен <span class="important">130 * 130</span> px</p>
+				<p>Размер второго элемента считается по-другому. Из-за значения <span class="property-full">box-sizing: border-box</span> браузер воспринимает width и height как <span class="important">конечные размеры. То есть в них уже включены</span> размеры <span class="property">padding</span> и <span class="property">border</span></p>
+				<p>Таким образом размер второго элемента <span class="important">100 px</span></p>
+				<h3>Что с контентной частью?</h3>
+				<p>Во втором случае размер блока сохраняется равным 100px за счет сужения контентной части. То есть 100px - border(5px*2) - paddint(10px*2) = 70px</p>
+				<div class="demonstration">
+					<img src="img/100.png" alt="100px">
+					<img src="img/70.png" alt="70px">
+				</div>
+				<h3 class="important-notion">Что делать? Чтобы было меньше ошибок использовать <span class="property-full">box-sizing: border-box</span> в обнуляющем файле css.</h3>
+				<div class="main-block2">
+					<h2>Виды элементов и их свойства</h2>
+					<p>Всего есть 3 вида элементов</p>
+					<ul>
+						<li>Блочный (block) - занимает всю ширину родителя и по умолчанию равна 100%. По умолчанию height блока равна нулю и равна высоте+ контента.</li>
+						<li>Строчно-блочный (inline-block) - height и width равна высоте и ширине контента. Можно принудительно задать ширину и высоту блока. По умолчанию height также равна 0.</li>
+						<li>Строчный (inline) - height и width равна высоте и ширине контента. Нельзя задать принудительно ширину и высоту. Height по умолчанию равна 0.</li>
+					</ul>
+					<h2>Свойства блоков</h2>
+					<ul>
+						<li>border - Устанавливает границу элемента. Записыватеся как border:<span class="anatomy">толщина стиль(solid, dotted, dushed, double) цвет</span>;</li>
+						<li>border-radius - Радиус скругления уголков блока. Записывается как border-radius: <span class="anatomy">верхний-левый верхний-правый нижний-правый нижний-левый</span>;</li>
+						<li>outline - Универсальное свойство, одновременно устанавливающее цвет, стиль и толщину внешней границы на всех четырех сторонах элемента. Запиысвается outline: <span class="anatomy">толщина стиль(solid, dotted, dushed, double) цвет;</li>
+						<li>box-shadow - Добавляет тень элементу. Записывается как box-shadow: <span class="anatomy">сдвиг_по_гориз сдвиг_по_верт радиус(размытие) расстояние(размер) цвет</span>;</li>
+						<li>opacity - Определяет уровень прозрачности элемента. Значение может быть равно от 0 до 1.</li>
+						<li>visibility - Похоже на opacity. Но имеет всего 2 значения visible (по умолчанию) и hidden.</li>
+					</ul>
+				</div>
+				<h2>Примеры реализации свойств на разных типах блоков.</h2>
+				<h3>Border</h3>
+				<p class="notion">Можно задать 2-мя способами:</p>
+				<p>Для всех сторон одновременно. Указывается один размер, например: border: 1px solid #000;</p>
+				<div class="demonstration">
+					<div class="border-ib border-solid">border-solid</div>
+					<div class="border-ib border-dashed">border-dashed</div>
+					<div class="border-ib border-dotted">border-dotted</div>
+				</div>
+				<p>Для каждой из сторон в отдельности: border-top: ; border-right: ; border-bottom: ; border-left: ;</p>
+				<div class="demonstration">
+					<div class="border-ib border-top">border-top</div>
+					<div class="border-ib border-right">border-right</div>
+					<div class="border-ib border-bottom">border-bottom</div>
+					<div class="border-ib border-left">border-left</div>
+				</div>
+				<p>Для разных типов блоков свойство выглядит следующим образом.</p>
+				<div class="border main-demonstration">
+					<div class="border-ib">
+						<div class="border-ex border-ex1">1.block</div>
+					</div>
+					<div class="border-ib">
+						<div class="border-ex border-ex2">2.inline-block</div>
+					</div>
+					<div class="border-ib">
+						<span class="border-ex border-ex3">3.Inline. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit.</span>
+					</div>
+					<p>Если <span>строчный</span> объект занимает больше места, то свойство поведет себя так:</p>
+					<span class="border-ex border-ex4">3.Inline. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, laborum architecto quos blanditiis, ratione dolorum distinctio ullam consectetur fugit delectus obcaecati minima quaerat ut, ab et esse quod eveniet aliquid. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, laborum architecto quos blanditiis, ratione dolorum distinctio ullam consectetur fugit delectus obcaecati minima quaerat ut, ab et esse quod eveniet aliquid.Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, laborum architecto quos blanditiis, ratione dolorum distinctio ullam consectetur fugit delectus obcaecati minima quaerat ut, ab et esse quod eveniet aliquid. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, laborum architecto quos blanditiis, ratione dolorum distinctio ullam consectetur fugit delectus obcaecati minima quaerat ut, ab et esse quod eveniet aliquid.</span>
+				</div>
+				<p class="notion">Интересно: при отсутствии выравнивания контента внутри блочно-строчного объекта строчный объект выравнивается самостоятельно по нижней границе контента внутри соседнего элемента (в данном случае строчно-блочного объекта), а не рамки.</p>
+				<h3>Border-radius</h3>
+				<p>Значение также можно установить 2-мя способами:</p>
+				<p>Для всех углов одновременно border-radius: 25%; / border-radius: 10px;</p>
+				<div class="demonstration">
+					<div class="br-all">border-radius: 25%;</div>
+				</div>
+				<p>Отдельно для каждого угла: border-radius: верхний-левый верхний-правый нижний-правый нижний-левый;</p>
+				<div class="demonstration">
+					<div class="br-forangle">border-radius: 10px 20px 10px 20px;</div>
+				</div>
+				<p>Для разных типов блоков свойство выглядит следующим образом.</p>
+				<div class="border-radius main-demonstration">
+					<div class="border-ib">
+						<div class="br-ex br-ex1">1.block</div>
+					</div>
+					<div class="border-ib">
+						<div class="br-ex br-ex2">2.inline-block</div>
+					</div>
+					<div class="border-ib"><span class="br-ex br-ex3">3.Inline. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit.</span></div>
+					<p>Если <span>строчный</span> объект занимает больше места, то свойство поведет себя так:</p>
+					<span class="br-ex br-ex4">3.Inline. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, laborum architecto quos blanditiis, ratione dolorum distinctio ullam consectetur fugit delectus obcaecati minima quaerat ut, ab et esse quod eveniet aliquid. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, laborum architecto quos blanditiis, ratione dolorum distinctio ullam consectetur fugit delectus obcaecati minima quaerat ut, ab et esse quod eveniet aliquid.Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, laborum architecto quos blanditiis, ratione dolorum distinctio ullam consectetur fugit delectus obcaecati minima quaerat ut, ab et esse quod eveniet aliquid. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, laborum architecto quos blanditiis, ratione dolorum distinctio ullam consectetur fugit delectus obcaecati minima quaerat ut, ab et esse quod eveniet aliquid.</span>
+				</div>
+				<h3>Outline</h3>
+				<div class="outline main-demonstration">
+					<div class="border-ib">
+						<div class="outline-ex outline-ex1">1.block</div>
+					</div>
+					<div class="border-ib">
+						<div class="outline-ex outline-ex2">2.inline-block</div>
+					</div>
+					<div class="border-ib"><span class="outline-ex outline-ex3">3.Inline. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit.</span></div>
+					<p>Если <span>строчный</span> объект занимает больше места, то свойство поведет себя так:</p>
+					<span class="outline-ex outline-ex4">3.Inline. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, laborum architecto quos blanditiis, ratione dolorum distinctio ullam consectetur fugit delectus obcaecati minima quaerat ut, ab et esse quod eveniet aliquid. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, laborum architecto quos blanditiis, ratione dolorum distinctio ullam consectetur fugit delectus obcaecati minima quaerat ut, ab et esse quod eveniet aliquid.Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, laborum architecto quos blanditiis, ratione dolorum distinctio ullam consectetur fugit delectus obcaecati minima quaerat ut, ab et esse quod eveniet aliquid. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, laborum architecto quos blanditiis, ratione dolorum distinctio ullam consectetur fugit delectus obcaecati minima quaerat ut, ab et esse quod eveniet aliquid.</span>
+				</div>
+				<p class="notion">Интересно: внешняя граница никак не влияет на размер контентной части и размер блока. Однако визуально блок занимает больше места за счет обрамления. Чем толще граница, тем больше блок будет "наезжать" на соседние блоки.</p>
+				<p class="notion">Обрамляется весь текстовый блок, а не каждая строчка, как у других свойств.</p>
+				<h3>Box-shadow</h3>
+				<p>Одновременно можно указывать несколько теней с разными параметрами.</p>
+				<div class="demonstration">
+					<div class="border-ib bs-oneshadow">one shadow</div>
+					<div class="border-ib bs-twoshadow">two shadows</div>
+					<div class="border-ib bs-threeshadow">three shadows</div>
+				</div>
+				<p>Для разных типов блоков свойство выглядит следующим образом.</p>
+				<div class="box-shadow main-demonstration">
+					<div class="border-ib">
+						<div class="bs-ex bs-ex1">1.block</div>
+					</div>
+					<div class="border-ib">
+						<div class="bs-ex bs-ex2">2.inline-block</div>
+					</div>
+					<div class="border-ib"><span class="bs-ex bs-ex3">3.Inline. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit.</span></div>
+					<p>Если <span>строчный</span> объект занимает больше места, то свойство поведет себя так:</p>
+					<span class="bs-ex bs-ex4">3.Inline. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, laborum architecto quos blanditiis, ratione dolorum distinctio ullam consectetur fugit delectus obcaecati minima quaerat ut, ab et esse quod eveniet aliquid. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, laborum architecto quos blanditiis, ratione dolorum distinctio ullam consectetur fugit delectus obcaecati minima quaerat ut, ab et esse quod eveniet aliquid.Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, laborum architecto quos blanditiis, ratione dolorum distinctio ullam consectetur fugit delectus obcaecati minima quaerat ut, ab et esse quod eveniet aliquid. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, laborum architecto quos blanditiis, ratione dolorum distinctio ullam consectetur fugit delectus obcaecati minima quaerat ut, ab et esse quod eveniet aliquid.</span>
+				</div>
+				<h3>Opacity</h3>
+				<div class="opacity main-demonstration">
+					<div class="border-ib">
+						<div class="opacity-ex opacity-ex1">1.block</div>
+					</div>
+					<div class="border-ib">
+						<div class="opacity-ex opacity-ex2">2.inline-block</div>
+					</div>
+					<div class="border-ib"><span class="opacity-ex opacity-ex3">3.Inline. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit.</span></div>
+				</div>
+				<p class="notion">Интересно: при применении свойства прозрачным становится весь блок, включая примененные к нему свойства.</p>
+				<h3>Visibility</h3>
+				<div class="visibility demonstration">
+					<div class="border-ib">
+						<div class="visibility-ex visibility-ex1">1.block</div>
+					</div>
+					<div class="border-ib">
+						<div class="visibility-ex visibility-ex2">2.inline-block</div>
+					</div>
+					<div class="border-ib"><span class="visibility-ex visibility-ex3">3.Inline. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit.</span></div>
+				</div>
+				<img class="visibility-artefact" src="img/chrome_i4mXghPb9E.png" alt="artefact">
+		</div>
+		<div id="2part" class="second-part">
+			<h2 class="likeh1">Вторая часть домашней работы. Часть макета Figma</h2>
+			<div class="figma-block">
+				<h2 class="figmah1">What Customers Say</h2>
+				<p class="figmap1">Why sir end believe uncivil respect. Always get adieus nature day course for <br> common. My little garret repair to desire he esteem.</p>
+				<div class="figma-block2 review">
+					<h2 class="figmah2">Great Service!!</h2>
+					<p class="review-p">“On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure.Blessing welcomed ladyship she met humoured sir breeding her. Six curiosity day assurance bed necessary.”</p>
+					<p class="review-name">Dragos Gontariu</p>
+					<p class="review-position">Mareting Manager</p>
+				</div>
+				<div class="figma-block3 man">
+					<img src="img/man.jpg" alt="strong_man">
+				</div>
+			</div>
+		</div>
+		</main>
+		<footer>
+			<div class="footer-div">Подвал документа</div>
+		</footer>
+	</div>
+</body>
+
+</html>
