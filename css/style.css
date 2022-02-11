@@ -236,13 +236,13 @@ box-shadow: 1px 6px 10px 5px #f498ad;;
  .figma-block{
  }
  .likeh1{
-	 margin: 0 0 140px 0;
-	 font-size: 30px;
+	margin: 0 0 140px 0;
+	font-size: 30px;
 	font-weight: 500;
 	text-transform: uppercase;
  }
  .figmah1{
-	 font-style: CircularStd;
+	font-family: CircularStd;
 	 text-align:center;
 	 font-size: 65px;
 	 font-weight: 400;
@@ -252,7 +252,7 @@ box-shadow: 1px 6px 10px 5px #f498ad;;
 
  }
  .figmap1{
-	font-style: CircularStd;
+	font-family: CircularStd;
 	 text-align: center;
 	 font-size: 20px;
 	 text-decoration: none;
@@ -274,7 +274,7 @@ box-shadow: 1px 6px 10px 5px #f498ad;;
 	font-size: 34px;
 	font-weight: 700;
 	text-decoration: none;
-	font-style: CircularStd;
+	font-family: CircularStd;
 	color: #313131;
 	margin: 0 0 20px 0;
 }
@@ -287,7 +287,7 @@ box-shadow: 1px 6px 10px 5px #f498ad;;
 	line-height: 1.55;
 	text-align: left;
 	text-decoration: none;
-	font-style: CircularStd;
+	font-family: CircularStd;
 	color: #5F5F5F;
 	margin: 0 0 125px 0;
 }
@@ -300,7 +300,7 @@ box-shadow: 1px 6px 10px 5px #f498ad;;
 }
 .review-position {
 	color: #B8B8B8;
-	font-style: CircularStd;
+	font-family: CircularStd;
 	font-size: 18px;
 	font-weight: 400;
 }
