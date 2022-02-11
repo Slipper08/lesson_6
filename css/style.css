@@ -294,7 +294,7 @@ box-shadow: 1px 6px 10px 5px #f498ad;;
 .review-name {
 	font-size: 20px;
 	font-weight: 700;
-	font-style: CircularStd;
+	font-family: CircularStd;
 	color: #313131;
 	margin: 0 0 5px 0;
 }
